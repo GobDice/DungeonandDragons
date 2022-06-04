@@ -55,11 +55,19 @@ public class PatternAdapter extends RecyclerView.Adapter<PatternAdapter.ViewHold
 
             @Override
             public void onClick(View v)
-            {
-                Intent intent = new Intent(v.getContext(),Monsters.class);
+            {   Intent intent = new Intent();
+                switch (position){
+
+                    case 0 : intent = new Intent(v.getContext(),Monsters.class);
+                        break;
+                    case 1 : intent = new Intent(v.getContext(),Race.class);
+                        break;
+                }
+
 
                 onClickListener.onPatternClick(pattern, position);
                 mContext.startActivity(intent);
+
             }
         });
     }
