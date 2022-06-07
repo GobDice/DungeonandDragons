@@ -22,7 +22,6 @@ public class PatternAdapter extends RecyclerView.Adapter<PatternAdapter.ViewHold
     private ViewHolder holder;
     private int position;
 
-
     interface OnPatternClickListener{
         void onPatternClick(Pattern_for_menu pattern_for_menu, int position);
     }
