@@ -33,7 +33,9 @@ public class MainActivity extends AppCompatActivity  {
 
         pattern_for_menus.add(new Pattern_for_menu ("Монстры", "Описание монстров", R.drawable.dragon));
         pattern_for_menus.add(new Pattern_for_menu ("Race", "Буэнос-Айрес", R.drawable.race));
-       // pattern_for_menus.add(new Pattern_for_menu ("calculator", "Буэнос-Айрес", R.drawable.race));
+        // pattern_for_menus.add(new Pattern_for_menu ("Calculator", "Буэнос-Айрес", R.drawable.race));
+        // pattern_for_menus.add(new Pattern_for_menu ("Favorite", "Буэнос-Айрес", R.drawable.race));
+
     }
 
 }

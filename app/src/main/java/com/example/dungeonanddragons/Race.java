@@ -21,8 +21,8 @@ public class Race extends AppCompatActivity {
     }
     private void setInitialData(){
 
-        pattern_for_Extra.add(new Pattern_for_menu ("Человек", "Описание монстров", R.drawable.dragon));
-        pattern_for_Extra.add(new Pattern_for_menu ("Орк", "Буэнос-Айрес", R.drawable.race));
-        // pattern_for_Monster.add(new Pattern_for_menu ("calculator", "Буэнос-Айрес", R.drawable.race));
+        pattern_for_Extra.add(new Pattern_for_menu ("Человек", "+1 к трем стат.", R.drawable.human_img));
+        pattern_for_Extra.add(new Pattern_for_menu ("Орк", "+2 сил.+1 тел. крит при 19", R.drawable.orc_img));
+        pattern_for_Extra.add(new Pattern_for_menu ("Эльф", "+2 инт.+1 лвк.", R.drawable.elf_img));
     }
 }
