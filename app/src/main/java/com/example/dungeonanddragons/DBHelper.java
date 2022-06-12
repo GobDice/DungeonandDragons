@@ -19,6 +19,8 @@ public class DBHelper extends SQLiteOpenHelper {
     static final String CONTENT = "content";
     static final String EXTRA = "extra";
     static final String IMG="img";
+    static final String LIKE="mlike";
+    static final String TYPE="type";
 
 
     public DBHelper(Context context) {
@@ -31,17 +33,11 @@ public class DBHelper extends SQLiteOpenHelper {
                 ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 CONTENT + " TEXT, " +
                 EXTRA + " TEXT, "+
-                IMG+"INTEGER "+")" + "; ";
+                IMG+" INTEGER, "+
+                LIKE+" INTEGER, "+
+                TYPE+" TEXT "+")" + "; ";
         db.execSQL(request);
-
     }
-    void insert(SQLiteDatabase db,String s1,String s2){
-        ContentValues cv =new ContentValues();
-        cv.put(DBHelper.CONTENT,s1);
-        cv.put(DBHelper.EXTRA,s2);
-        db.insert(DBHelper.TABLE_NAME,null,cv);
-    }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 

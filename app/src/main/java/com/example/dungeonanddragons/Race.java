@@ -3,6 +3,7 @@ package com.example.dungeonanddragons;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
@@ -26,9 +27,13 @@ public class Race extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
     private void setInitialData(){
-
-        pattern_for_Extra.add(new Pattern_for_menu ("Человек", "+1 к трем стат.", R.drawable.human_img));
-        pattern_for_Extra.add(new Pattern_for_menu ("Орк", "+2 сил.+1 тел. крит при 19", R.drawable.orc_img));
-        pattern_for_Extra.add(new Pattern_for_menu ("Эльф", "+2 инт.+1 лвк.", R.drawable.elf_img));
+        Cursor cursor=db.rawQuery("SELECT * FROM "+DBHelper.TABLE_NAME + " WHERE "+DBHelper.TYPE+" = 'R' ",null);
+        cursor.moveToFirst();
+        for (int i=1;i<cursor.getCount()+1;i++){
+            Pattern_for_menu pattern_for_menu=new Pattern_for_menu(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3),cursor.getInt(4));
+            cursor.moveToNext();
+            pattern_for_Extra.add(pattern_for_menu);
+        }
+        cursor.close();
     }
 }

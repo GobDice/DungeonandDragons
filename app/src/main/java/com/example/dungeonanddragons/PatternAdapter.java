@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -92,7 +93,7 @@ public class PatternAdapter extends RecyclerView.Adapter<PatternAdapter.ViewHold
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        final Button button;
+        final ImageButton button;
         final ImageView imageView;
         final TextView contentView, extraView;
         ViewHolder(View view){
