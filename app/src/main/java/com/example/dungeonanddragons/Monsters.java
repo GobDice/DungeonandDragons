@@ -3,26 +3,32 @@ package com.example.dungeonanddragons;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import java.util.ArrayList;
 
 public class Monsters extends AppCompatActivity {
     ArrayList<Pattern_for_menu> pattern_for_Extra = new ArrayList<Pattern_for_menu>();
+    DBHelper db_helper;
+    SQLiteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = getBaseContext().openOrCreateDatabase(DBHelper.DATABASE_NAME, MODE_PRIVATE, null);
+        db_helper = new DBHelper(this);
+        db_helper.onCreate(db);
         setContentView(R.layout.activity_monsters);
         setInitialData();
         RecyclerView recyclerView = findViewById(R.id.list);
-        ExtraAdapter adapter = new ExtraAdapter(this, pattern_for_Extra);
-
+        ExtraAdapter adapter = new ExtraAdapter(this, pattern_for_Extra,db,db_helper);
         recyclerView.setAdapter(adapter);
     }
     private void setInitialData(){
-
-        pattern_for_Extra.add(new Pattern_for_menu ("Goblin", "Описание монстров", R.drawable.dragon));
-        pattern_for_Extra.add(new Pattern_for_menu ("Race", "Буэнос-Айрес", R.drawable.race));
-        // pattern_for_Monster.add(new Pattern_for_menu ("calculator", "Буэнос-Айрес", R.drawable.race));
+        pattern_for_Extra.add(new Pattern_for_menu ("Goblin", "", R.drawable.dragon));
+        pattern_for_Extra.add(new Pattern_for_menu ("Goblit", "", R.drawable.race));
+        pattern_for_Extra.add(new Pattern_for_menu ("Snake", "", R.drawable.dragon));
+        pattern_for_Extra.add(new Pattern_for_menu ("", "", R.drawable.race));
     }
 }
