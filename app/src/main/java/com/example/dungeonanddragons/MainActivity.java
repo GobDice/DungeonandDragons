@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity  {
         db_helper = new DBHelper(this);
         db_helper.onCreate(db);
         db = db_helper.getReadableDatabase();
-        Cursor cursor= db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME,null);
-        String[] s=cursor.getColumnNames();
         setContentView(R.layout.activity_main);
         setInitialData();
         RecyclerView recyclerView = findViewById(R.id.list);
@@ -48,19 +46,19 @@ public class MainActivity extends AppCompatActivity  {
         db=db_helper.getReadableDatabase();
         Cursor cursor=db.rawQuery("SELECT * FROM "+DBHelper.TABLE_NAME,null);
         if(cursor.getCount()==0){
-            insert("Goblin", "20 зд. 3 атк.", R.drawable.goblin,"M",0);
-            insert("Goblit", "20 зд. 3 атк.", R.drawable.goblit,"M",0);
-            insert("Snake", "10 зд. 2 атк.+отрв.", R.drawable.snake,"M",0);
-            insert("Werewolf", "100 зд. 10 атк.", R.drawable.werewolf,"M",0);
-            insert("Frog", "1 зд. 0 атк.", R.drawable.frog_img,"M",0);
-            insert("Sea horse", "2 зд. 0 атк.", R.drawable.sea_horse_img,"M",0);
-            insert("Scorpion", "3 зд. 2 атк.", R.drawable.scorpion_img,"M",0);
+            insert("Goblin", "20 hp. 3 dmg.", R.drawable.goblin,"M",0);
+            insert("Goblit", "20 hp. 3 dmg.", R.drawable.goblit,"M",0);
+            insert("Snake", "10 hp. 2 dmg.+poisn.", R.drawable.snake,"M",0);
+            insert("Werewolf", "100 hp. 10 dmg.", R.drawable.werewolf,"M",0);
+            insert("Frog", "1 hp. 0 dmg.", R.drawable.frog_img,"M",0);
+            insert("Sea horse", "2 hp. 0 dmg.", R.drawable.sea_horse_img,"M",0);
+            insert("Scorpion", "3 hp. 2 dmg.", R.drawable.scorpion_img,"M",0);
             insert("Человек", "+1 к кажд. хар.", R.drawable.human_img,"R",0);
-            insert("Творение божье", "Одну +2 и +1 или Три +1", R.drawable.godder_img,"R",0);
-            insert("Орк", "+2 сил.+1 тел. крит при 19", R.drawable.orc_img,"R",0);
-            insert("Эльф", "+2 инт.+1 лвк.", R.drawable.elf_img,"R",0);
-            insert("Змее-люд", "+2 лвк. скрытн. с прем.", R.drawable.snake_human_img,"R",0);
-            insert("Дварф", "+3 тел.", R.drawable.dwarf_img,"R",0);
+            insert("Творение божье", "one +2 and +1", R.drawable.godder_img,"R",0);
+            insert("Орк", "+2 str.+1 hp. ", R.drawable.orc_img,"R",0);
+            insert("Эльф", "+2 int.+1 agl.", R.drawable.elf_img,"R",0);
+            insert("Змее-люд", "+2 agl. +1 str.", R.drawable.snake_human_img,"R",0);
+            insert("Дварф", "+3 hp.", R.drawable.dwarf_img,"R",0);
         }
         cursor.close();
     }

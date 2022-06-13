@@ -40,7 +40,6 @@ public class Favorite extends AppCompatActivity  {
         db=db_helper.getReadableDatabase();
         Cursor cursor=db.rawQuery("SELECT * FROM "+DBHelper.TABLE_NAME + " WHERE "+DBHelper.LIKE+"= 1",null);
         cursor.moveToFirst();
-        Toast.makeText(getApplicationContext(),Integer.toString(cursor.getCount()),Toast.LENGTH_LONG).show();
         for (int i=1;i<cursor.getCount()+1;i++){
            Pattern_for_menu pattern_for_menu=new Pattern_for_menu(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3),cursor.getInt(4));
            cursor.moveToNext();

@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 public class DBHelper extends SQLiteOpenHelper {
     static final String DATABASE_NAME = "app";
     static final int DATABASE_VERSION = 1;
-    static final String TABLE_NAME = "items";
+    static final String TABLE_NAME = "tabs";
 
 
     static final String ID = "id";
