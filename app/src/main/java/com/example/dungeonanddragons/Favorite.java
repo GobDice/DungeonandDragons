@@ -37,7 +37,6 @@ public class Favorite extends AppCompatActivity  {
         recyclerView.setAdapter(adapter);
     }
     void Cl_hop(){
-        Toast.makeText(getApplicationContext(),"Good",Toast.LENGTH_LONG).show();
         db=db_helper.getReadableDatabase();
         Cursor cursor=db.rawQuery("SELECT * FROM "+DBHelper.TABLE_NAME + " WHERE "+DBHelper.LIKE+"= 1",null);
         cursor.moveToFirst();

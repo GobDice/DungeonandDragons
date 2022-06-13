@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity  {
         db = db_helper.getReadableDatabase();
         Cursor cursor= db.rawQuery("SELECT * FROM " + DBHelper.TABLE_NAME,null);
         String[] s=cursor.getColumnNames();
-        Toast.makeText(getApplicationContext(), Arrays.toString(s),Toast.LENGTH_LONG).show();
         setContentView(R.layout.activity_main);
         setInitialData();
         RecyclerView recyclerView = findViewById(R.id.list);
